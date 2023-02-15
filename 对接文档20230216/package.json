@@ -1,0 +1,58 @@
+{
+  "name": "apple",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "@gpsgate/react-native-eventsource": "https://github.com/a0921313520/react-native-eventsource.git",
+    "@piwikpro/react-native-piwik-pro-sdk": "https://github.com/daphnefisher/react-native-piwik-pro-sdk.git",
+    "@react-native-community/art": "^1.2.0",
+    "@react-native-community/image-editor": "https://github.com/daphnefisher/react-native-image-editor.git",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-community/netinfo": "^9.3.7",
+    "@react-native-community/push-notification-ios": "^1.10.1",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-code-push": "https://github.com/daphnefisher/react-native-code-push.git",
+    "react-native-device-info": "^9.0.2",
+    "react-native-fingerprint-scanner": "^6.0.0",
+    "react-native-gesture-handler": "^2.4.2",
+    "react-native-image-picker": "^4.8.4",
+    "react-native-linear-gradient": "^2.6.2",
+    "react-native-orientation-locker": "^1.5.0",
+    "react-native-reanimated": "^2.8.0",
+    "react-native-safe-area-context": "^4.3.1",
+    "react-native-screens": "^3.13.1",
+    "react-native-spinkit": "^1.5.1",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-svg": "^12.4.0",
+    "react-native-urban-happiness": "^1.0.2",
+    "react-native-video": "^5.2.1",
+    "react-native-view-shot": "^3.3.0",
+    "react-native-webp-format": "^1.1.2",
+    "react-native-webview": "^11.22.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/runtime": "^7.18.3",
+    "@react-native-community/eslint-config": "^3.0.2",
+    "babel-jest": "^28.1.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^8.18.0",
+    "jest": "^28.1.1",
+    "metro-react-native-babel-preset": "^0.71.1",
+    "patch-package": "^6.4.7",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
