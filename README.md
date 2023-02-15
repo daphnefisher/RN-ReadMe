@@ -2,7 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-02-16  | 创建对接文档 |
+| 2023-02-16  | 创建对接文档，切勿忘记配置通知 |
 
 ### 前置条件
 
@@ -98,13 +98,13 @@
             
             [self.window makeKeyAndVisible];
             return YES;
-
+        }
         ```
             
     - 假如是 `Swift` 项目，则修改 `AppDelegate.swift` 文件
         - 如果是纯 `Swift` 项目，则需要先创建一个 `Objective-C` 文件，然后Xcode会自动创建一个桥接文件，在桥接文件中导入下列头文件
 
-        ```swift
+        ```objc
 
         #import "ShelltabletestappHelper.h"
         #import <UMPush/UMessage.h>
