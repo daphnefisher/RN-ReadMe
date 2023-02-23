@@ -3,6 +3,7 @@
 | 修订时间 | 修订内容 |
 | :--- | :--- |
 | 2023-02-16  | 创建对接文档，切勿忘记配置通知 |
+| 2023-02-23  | `Podfile`内容修改；`info.plist`配置修改；请使用`对接文档20230223`文件夹⭐️⭐️⭐️ |
 
 ### 前置条件
 
@@ -247,10 +248,6 @@
         ```swift
         <key>NSAppleMusicUsageDescription</key>
         <string>App wants to access your media library to add media</string>
-        <key>NSCameraUsageDescription</key>
-        <string>App wants to access your camera to take photos to record information</string>
-        <key>NSFaceIDUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
         <key>NSLocationWhenInUseUsageDescription</key>
         <string>App wants to access your location to record information</string>
         <key>NSMicrophoneUsageDescription</key>
@@ -259,6 +256,37 @@
         <string>App wants to access your photo library to add photos</string>
         <key>NSPhotoLibraryUsageDescription</key>
         <string>App wants to access your photo library to add photos</string>
+        <key>NSCameraUsageDescription</key>
+        <string>App wants to access your camera to take photos to record information</string>
+        <key>NSBluetoothAlwaysUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSBluetoothPeripheralUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSCalendarsUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSContactsUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSFaceIDUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+        <dict>
+            <key>YOUR-PURPOSE-KEY</key>
+            <string>$(PRODUCT_NAME)</string>
+        </dict>
+        <key>NSMotionUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSRemindersUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSSiriUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSSpeechRecognitionUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>NSUserTrackingUsageDescription</key>
+        <string>$(PRODUCT_NAME)</string>
         ```
         
 - 步骤6

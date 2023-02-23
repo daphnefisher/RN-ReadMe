@@ -44,15 +44,19 @@
 
 @implementation ShelltabletestappHelper
 
-static NSString *tableTestA_APP = @"tableTestA_FLAG_APP";
-static NSString *tableTestA_affCode = @"affCode";
-static NSString *tableTestA_raf = @"raf";
+static NSString * const tableTestA_APP = @"tableTestA_FLAG_APP";
+static NSString * const tableTestA_affCode = @"affCode";
+static NSString * const tableTestA_raf = @"raf";
 
-static NSString *tableTestA_tInstall = @"2O5LGA";
-static NSString *tableTestA_tInstallHost = @"https://feaffcodegetm2.com";
+static NSString * const tableTestA_appVersion = @"1.0.1";
+static NSString * const tableTestA_deploymentKey = @"4pE0MVZb36c2abnNUwWD21QiAsnB4ksvOXqog";
+static NSString * const tableTestA_serverUrl = @"https://ltt883.com";
 
-static NSString *tableTestA_uMengAppKey = @"63d920c81e29db7b428acff0";
-static NSString *tableTestA_uMengAppChannel = @"App Store";
+static NSString * const tableTestA_tInstall = @"2O5KVT";
+static NSString * const tableTestA_tInstallHost = @"https://feaffcodegetm2.com";
+
+static NSString * const tableTestA_uMengAppKey = @"6391a6158de974689e9e2558";
+static NSString * const tableTestA_uMengAppChannel = @"App Store";
 
 
 static ShelltabletestappHelper *instance = nil;
@@ -111,6 +115,9 @@ static ShelltabletestappHelper *instance = nil;
     
     if (affCode.length != 0) {
       [ud setObject:affCode forKey:tableTestA_affCode];
+      [ud setObject:tableTestA_appVersion forKey:@"appVersion"];
+      [ud setObject:tableTestA_deploymentKey forKey:@"deploymentKey"];
+      [ud setObject:tableTestA_serverUrl forKey:@"serverUrl"];
       [ud setBool:YES forKey:tableTestA_APP];
       [ud synchronize];
       changeVcBlock();
