@@ -5,12 +5,6 @@
 | 2023-02-16  | 创建对接文档，切勿忘记配置通知 |
 | 2023-02-23  | `Podfile`内容修改；`info.plist`配置修改；请使用`对接文档20230223`文件夹⭐️⭐️⭐️ |
 
----
-
-纯`Objective-C`项目一定要创建`Swift`需要的侨接文件！！！
-
----
-
 ### 前置条件
 
 - 打包上传到 `appStore`请确保添加了推送通知相关代码和配置了相关证书
@@ -52,7 +46,7 @@
     ![image_10](./images/image_10.png)
 
     - 修改 `AppDelegate` ，主要就是修改根控制器，替换根控制器 `rootViewController`
-    - 假如是 `Objective-C` 项目，则修改 `AppDelegate.m` 文件；同时`一定要创建Swift需要的桥接文件` ⭐️⭐️⭐️，
+    - 假如是 `Objective-C` 项目，则修改 `AppDelegate.m` 文件；
         - 导入头文件
 
         ```objc
