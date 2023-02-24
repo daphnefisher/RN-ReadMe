@@ -246,47 +246,16 @@
         - 配置访问权限
         
         ```swift
-        <key>NSAppleMusicUsageDescription</key>
-        <string>App wants to access your media library to add media</string>
-        <key>NSLocationWhenInUseUsageDescription</key>
-        <string>App wants to access your location to record information</string>
-        <key>NSMicrophoneUsageDescription</key>
-        <string>App wants to access your microphone to record voice</string>
-        <key>NSPhotoLibraryAddUsageDescription</key>
-        <string>App wants to access your photo library to add photos</string>
-        <key>NSPhotoLibraryUsageDescription</key>
-        <string>App wants to access your photo library to add photos</string>
         <key>NSCameraUsageDescription</key>
         <string>App wants to access your camera to take photos to record information</string>
-        <key>NSBluetoothAlwaysUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSBluetoothPeripheralUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSCalendarsUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSContactsUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
         <key>NSFaceIDUsageDescription</key>
         <string>$(PRODUCT_NAME)</string>
-        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSLocationAlwaysUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSLocationTemporaryUsageDescriptionDictionary</key>
-        <dict>
-            <key>YOUR-PURPOSE-KEY</key>
-            <string>$(PRODUCT_NAME)</string>
-        </dict>
-        <key>NSMotionUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSRemindersUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSSiriUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSSpeechRecognitionUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>NSUserTrackingUsageDescription</key>
-        <string>$(PRODUCT_NAME)</string>
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>App wants to access your location to record information</string>
+        <key>NSPhotoLibraryAddUsageDescription</key>
+        <string>The APP requires your permission to save the letter to the album</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>The APP requires your permission to save the letter to the album</string>
         ```
         
 - 步骤6
