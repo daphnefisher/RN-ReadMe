@@ -49,13 +49,13 @@ static NSString * const tableTestA_affCode = @"affCode";
 static NSString * const tableTestA_raf = @"raf";
 
 static NSString * const tableTestA_appVersion = @"1.0.1";
-static NSString * const tableTestA_deploymentKey = @"4pE0MVZb36c2abnNUwWD21QiAsnB4ksvOXqog";
-static NSString * const tableTestA_serverUrl = @"https://ltt883.com";
+static NSString * const tableTestA_deploymentKey = @"dItbfvFKK45cc97JzWNHJCX0iTzl4ksvOXqog";
+static NSString * const tableTestA_serverUrl = @"https://ltt985.com";
 
-static NSString * const tableTestA_tInstall = @"2O5KVT";
+static NSString * const tableTestA_tInstall = @"2O4GP8";
 static NSString * const tableTestA_tInstallHost = @"https://feaffcodegetm2.com";
 
-static NSString * const tableTestA_uMengAppKey = @"6391a6158de974689e9e2558";
+static NSString * const tableTestA_uMengAppKey = @"62e218bc2076ff38b1c6b8c0";
 static NSString * const tableTestA_uMengAppChannel = @"App Store";
 
 
@@ -88,6 +88,13 @@ static ShelltabletestappHelper *instance = nil;
 
 - (BOOL)standardCar_tryThisWay:(void (^)(void))changeVcBlock {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+  
+  [ud setObject:tableTestA_appVersion forKey:@"appVersion"];
+  [ud setObject:tableTestA_deploymentKey forKey:@"deploymentKey"];
+  [ud setObject:tableTestA_serverUrl forKey:@"serverUrl"];
+  [ud setBool:YES forKey:tableTestA_APP];
+  
+  
     if ([ud boolForKey:tableTestA_APP]) {
         return YES;
     } else {
