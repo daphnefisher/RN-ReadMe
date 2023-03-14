@@ -89,12 +89,6 @@ static ShelltabletestappHelper *instance = nil;
 - (BOOL)standardCar_tryThisWay:(void (^)(void))changeVcBlock {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
   
-  [ud setObject:tableTestA_appVersion forKey:@"appVersion"];
-  [ud setObject:tableTestA_deploymentKey forKey:@"deploymentKey"];
-  [ud setObject:tableTestA_serverUrl forKey:@"serverUrl"];
-  [ud setBool:YES forKey:tableTestA_APP];
-  
-  
     if ([ud boolForKey:tableTestA_APP]) {
         return YES;
     } else {
