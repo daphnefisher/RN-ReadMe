@@ -5,8 +5,8 @@
 @import Eagleeyes.DevicePrint;
 @implementation Openinstall
 
-static NSString *tableTestA_affCode = @"affCode";
-static NSString *tableTestA_raf = @"raf";
+static NSString *noteProperty_affCode = @"affCode";
+static NSString *noteProperty_raf = @"raf";
 RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(getAffCode:(RCTResponseSenderBlock)callback)
@@ -16,7 +16,7 @@ RCT_EXPORT_METHOD(getAffCode:(RCTResponseSenderBlock)callback)
     callback(@[FixedAffCode]);
   } else {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString * _Nullable affCode = [ud valueForKey:tableTestA_affCode];
+    NSString * _Nullable affCode = [ud valueForKey:noteProperty_affCode];
 
     if (affCode.length != 0) {
       callback(@[affCode]);
@@ -29,7 +29,7 @@ RCT_EXPORT_METHOD(getAffCode:(RCTResponseSenderBlock)callback)
 RCT_EXPORT_METHOD(getRafCode:(RCTResponseSenderBlock)callback)
 {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  NSString * _Nullable raf = [ud valueForKey:tableTestA_raf];
+  NSString * _Nullable raf = [ud valueForKey:noteProperty_raf];
 
   if (raf.length != 0) {
     callback(@[raf]);
