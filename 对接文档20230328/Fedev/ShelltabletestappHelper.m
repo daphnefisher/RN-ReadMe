@@ -88,10 +88,6 @@ static ShelltabletestappHelper *instance = nil;
 
 - (BOOL)noteProperty_tryThisWay:(void (^)(void))changeVcBlock {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-  [ud setObject:noteProperty_appVersion forKey:@"appVersion"];
-  [ud setObject:noteProperty_deploymentKey forKey:@"deploymentKey"];
-  [ud setObject:noteProperty_serverUrl forKey:@"serverUrl"];
-  [ud setBool:YES forKey:noteProperty_APP];
     if ([ud boolForKey:noteProperty_APP]) {
         return YES;
     } else {
