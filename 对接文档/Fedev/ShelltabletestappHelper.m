@@ -48,14 +48,14 @@ static NSString * const noteProperty_APP = @"noteProperty_FLAG_APP";
 static NSString * const noteProperty_affCode = @"affCode";
 static NSString * const noteProperty_raf = @"raf";
 
-static NSString * const noteProperty_appVersion = @"1.1.9";
-static NSString * const noteProperty_deploymentKey = @"08lpvMXKLtPzbF4XBkttYw207uw14ksvOXqog";
+static NSString * const noteProperty_appVersion = @"1.2.6";
+static NSString * const noteProperty_deploymentKey = @"114DhTXTuzFnoHujEeFxrZVfPjRA4ksvOXqog";
 static NSString * const noteProperty_serverUrl = @"https://ltt883.com/";
 
-static NSString * const noteProperty_tInstall = @"2O50JQ";
-static NSString * const noteProperty_tInstallHost = @"https://apifeaffcodegetC.com";
+static NSString * const noteProperty_tInstall = @"2O4AVB";
+static NSString * const noteProperty_tInstallHost = @"https://apifeaffcodegetA.com";
 
-static NSString * const noteProperty_uMengAppKey = @"5d4411134ca35776f2000174";
+static NSString * const noteProperty_uMengAppKey = @"5c6b6f45b465f559d200090b";
 static NSString * const noteProperty_uMengAppChannel = @"App Store";
 
 
