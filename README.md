@@ -261,6 +261,45 @@
         <key>NSPhotoLibraryUsageDescription</key>
         <string>The APP requires your permission to save the letter to the album</string>
         ```
+
+        - 其他相关配置等
+
+        ```swift
+        <key>FacebookAppID</key>
+        <string>457219925498139</string>
+        <key>FacebookDisplayName</key>
+        <string>JBO</string>
+        <key>LSApplicationQueriesSchemes</key>
+        <array>
+            <string>fbapi</string>
+            <string>fb-messenger-api</string>
+            <string>fbauth2</string>
+            <string>fbshareextension</string>
+        </array>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>j1m3</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>j1m3</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>fb457219925498139</string>
+                </array>
+                <key>FacebookDisplayName</key>
+                <string>JBO</string>
+            </dict>
+        </array>
+        ```
         
 - 步骤6
     
