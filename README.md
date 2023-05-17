@@ -282,42 +282,6 @@
             <dict>
                 <key>CFBundleTypeRole</key>
                 <string>Editor</string>
-                <key>CFBundleURLName</key>
-                <string></string>
-                <key>CFBundleURLSchemes</key>
-                <array>
-                    <string>wb3921700954</string>
-                </array>
-            </dict>
-            <dict>
-                <key>CFBundleTypeRole</key>
-                <string>Editor</string>
-                <key>CFBundleURLName</key>
-                <string>weixin</string>
-                <key>CFBundleURLSchemes</key>
-                <array>
-                    <string>wxdc1e388c3822c80b</string>
-                </array>
-            </dict>
-            <dict>
-                <key>CFBundleTypeRole</key>
-                <string>Editor</string>
-                <key>CFBundleURLSchemes</key>
-                <array>
-                    <string>tencent1105821097</string>
-                </array>
-            </dict>
-            <dict>
-                <key>CFBundleTypeRole</key>
-                <string>Editor</string>
-                <key>CFBundleURLSchemes</key>
-                <array>
-                    <string>QQ41E97DA9</string>
-                </array>
-            </dict>
-            <dict>
-                <key>CFBundleTypeRole</key>
-                <string>Editor</string>
                 <key>CFBundleURLSchemes</key>
                 <array>
                     <string>fb506027402887373</string>
