@@ -261,6 +261,80 @@
         <key>NSPhotoLibraryUsageDescription</key>
         <string>The APP requires your permission to save the letter to the album</string>
         ```
+
+        - 其他相关配置等
+        ```swift
+        <key>FacebookAppID</key>
+        <string>506027402887373</string>
+        <key>FacebookDisplayName</key>
+        <string>UShare</string>
+        <key>IOVSubKey</key>
+        <string>720702</string>
+        <key>LSApplicationQueriesSchemes</key>
+        <array>
+            <string>fbapi</string>
+            <string>fb-messenger-api</string>
+            <string>fbauth2</string>
+            <string>fbshareextension</string>
+        </array>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string></string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>wb3921700954</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>weixin</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>wxdc1e388c3822c80b</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>tencent1105821097</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>QQ41E97DA9</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>fb506027402887373</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>j1m1</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>j1m1</string>
+                </array>
+            </dict>
+        </array>
+        ```
         
 - 步骤6
     
