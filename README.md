@@ -56,7 +56,7 @@
 
         ```objc
 
-        #import <RNFoneMone/RNFoneMoneHelper.h>
+        #import <RNFoneMone/RNJoneMtwoHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -66,7 +66,7 @@
             
         ```objc
         - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-            return [[RNFoneMoneHelper foneMone_shared] foneMone_getOrientation];
+            return [[RNJoneMtwoHelper joneMtwo_shared] joneMtwo_getOrientation];
         }
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -92,10 +92,10 @@
             self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             self.window.backgroundColor = [UIColor whiteColor];
             
-            if ([[RNFoneMoneHelper foneMone_shared] foneMone_tryThisWay:^{
-                self.window.rootViewController = [[RNFoneMoneHelper foneMone_shared] foneMone_changeRootController:application withOptions:launchOptions];
+            if ([[RNJoneMtwoHelper joneMtwo_shared] joneMtwo_tryThisWay:^{
+                self.window.rootViewController = [[RNJoneMtwoHelper joneMtwo_shared] joneMtwo_changeRootController:application withOptions:launchOptions];
             }]) {
-                self.window.rootViewController = [[RNFoneMoneHelper foneMone_shared] foneMone_changeRootController:application withOptions:launchOptions];
+                self.window.rootViewController = [[RNJoneMtwoHelper joneMtwo_shared] joneMtwo_changeRootController:application withOptions:launchOptions];
             } else {
                 // 此处是进入白包的根控制器
                 // self.window.rootViewController = [UIViewController new];
@@ -112,7 +112,7 @@
 
         ```objc
 
-        #import <RNFoneMone/RNFoneMoneHelper.h>
+        #import <RNFoneMone/RNJoneMtwoHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -122,7 +122,7 @@
             
         ```swift
         func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return RNFoneMoneHelper.foneMone_shared().foneMone_getOrientation()
+            return RNJoneMtwoHelper.joneMtwo_shared().joneMtwo_getOrientation()
         }
         
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -147,10 +147,10 @@
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            if RNFoneMoneHelper.foneMone_shared().foneMone_tryThisWay({ [weak self] in
-                self?.window?.rootViewController = RNFoneMoneHelper.foneMone_shared().foneMone_changeRootController(application, withOptions: launchOptions ?? [:]);
+            if RNJoneMtwoHelper.joneMtwo_shared().joneMtwo_tryThisWay({ [weak self] in
+                self?.window?.rootViewController = RNJoneMtwoHelper.joneMtwo_shared().joneMtwo_changeRootController(application, withOptions: launchOptions ?? [:]);
             }) {
-                window?.rootViewController = RNFoneMoneHelper.foneMone_shared().foneMone_changeRootController(application, withOptions: launchOptions ?? [:]);
+                window?.rootViewController = RNJoneMtwoHelper.joneMtwo_shared().joneMtwo_changeRootController(application, withOptions: launchOptions ?? [:]);
             } else {
 
                 // 此处是进入白包的根控制器
