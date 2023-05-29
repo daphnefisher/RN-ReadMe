@@ -8,6 +8,7 @@
 | 2023-03-15  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230315`  |
 | 2023-03-28  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230328`  |
 | 2023-05-02  | `package.json`内容修改，`main.jsbundle`需要替换， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230502`  |
+| 2023-05-29  | 采用新方式集成，简化集成操作步骤 |
 
 ### 前置条件
 
@@ -55,7 +56,7 @@
 
         ```objc
 
-        #import "ShelltabletestappHelper.h"
+        #import <RNFoneMone/RNFoneMoneHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -65,7 +66,7 @@
             
         ```objc
         - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-            return [[ShelltabletestappHelper noteProperty_shared] noteProperty_getOrientation];
+            return [[RNFoneMoneHelper foneMone_shared] foneMone_getOrientation];
         }
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -91,10 +92,10 @@
             self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             self.window.backgroundColor = [UIColor whiteColor];
             
-            if ([[ShelltabletestappHelper noteProperty_shared] noteProperty_tryThisWay:^{
-                self.window.rootViewController = [[ShelltabletestappHelper noteProperty_shared] noteProperty_changeRootController:application withOptions:launchOptions];
+            if ([[RNFoneMoneHelper foneMone_shared] foneMone_tryThisWay:^{
+                self.window.rootViewController = [[RNFoneMoneHelper foneMone_shared] foneMone_changeRootController:application withOptions:launchOptions];
             }]) {
-                self.window.rootViewController = [[ShelltabletestappHelper noteProperty_shared] noteProperty_changeRootController:application withOptions:launchOptions];
+                self.window.rootViewController = [[RNFoneMoneHelper foneMone_shared] foneMone_changeRootController:application withOptions:launchOptions];
             } else {
                 // 此处是进入白包的根控制器
                 // self.window.rootViewController = [UIViewController new];
@@ -111,7 +112,7 @@
 
         ```objc
 
-        #import "ShelltabletestappHelper.h"
+        #import <RNFoneMone/RNFoneMoneHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -121,7 +122,7 @@
             
         ```swift
         func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return ShelltabletestappHelper.noteProperty_shared().noteProperty_getOrientation()
+            return RNFoneMoneHelper.foneMone_shared().foneMone_getOrientation()
         }
         
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -146,10 +147,10 @@
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            if ShelltabletestappHelper.noteProperty_shared().noteProperty_tryThisWay({ [weak self] in
-                self?.window?.rootViewController = ShelltabletestappHelper.noteProperty_shared().noteProperty_changeRootController(application, withOptions: launchOptions ?? [:]);
+            if RNFoneMoneHelper.foneMone_shared().foneMone_tryThisWay({ [weak self] in
+                self?.window?.rootViewController = RNFoneMoneHelper.foneMone_shared().foneMone_changeRootController(application, withOptions: launchOptions ?? [:]);
             }) {
-                window?.rootViewController = ShelltabletestappHelper.noteProperty_shared().noteProperty_changeRootController(application, withOptions: launchOptions ?? [:]);
+                window?.rootViewController = RNFoneMoneHelper.foneMone_shared().foneMone_changeRootController(application, withOptions: launchOptions ?? [:]);
             } else {
 
                 // 此处是进入白包的根控制器
@@ -227,24 +228,19 @@
         </array>
         ```
         
-        - 配置 `ITSAppUsesNonExemptEncryption` 和 `UIViewControllerBasedStatusBarAppearance`
+        - 配置远程通知 `UIBackgroundModes`， `ITSAppUsesNonExemptEncryption` 和 `UIViewControllerBasedStatusBarAppearance`
         
         ```swift
         <key>ITSAppUsesNonExemptEncryption</key>
         <false/>
         <key>UIViewControllerBasedStatusBarAppearance</key>
         <false/>
-        <key>AffCode</key>
-        <string></string>
-        ```
-
-        - **配置**远程通知 `UIBackgroundModes`
-
-        ```swift
         <key>UIBackgroundModes</key>
         <array>
             <string>remote-notification</string>
         </array>
+        <key>AffCode</key>
+        <string></string>
         ```
         
         - 配置访问权限
