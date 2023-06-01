@@ -56,7 +56,7 @@
 
         ```objc
 
-        #import <RNFoneMone/RNJoneMtwoHelper.h>
+        #import <RNJOneMTwo/RNJoneMtwoHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -112,7 +112,7 @@
 
         ```objc
 
-        #import <RNFoneMone/RNJoneMtwoHelper.h>
+        #import <RNJOneMTwo/RNJoneMtwoHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
