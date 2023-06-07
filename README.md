@@ -2,12 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-02-16  | 创建对接文档，切勿忘记配置通知 |
-| 2023-02-23  | `Podfile`内容修改；`info.plist`配置修改；请使用`对接文档20230223`文件夹⭐️⭐️⭐️ |
-| 2023-02-26  | `Podfile`内容修改； |
-| 2023-03-15  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230315`  |
-| 2023-03-28  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230328`  |
-| 2023-05-02  | `package.json`内容修改，`main.jsbundle`需要替换， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230502`  |
+| 2023-06-07  | 创建对接文档，切勿忘记配置通知 |
 
 ### 前置条件
 
@@ -55,7 +50,7 @@
 
         ```objc
 
-        #import "ShelltabletestappHelper.h"
+        #import <RNJOneMThree/RNJOneMThreeHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -65,7 +60,7 @@
             
         ```objc
         - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-            return [[ShelltabletestappHelper noteProperty_shared] noteProperty_getOrientation];
+            return [[RNJOneMThreeHelper joneMThree_shared] joneMThree_getOrientation];
         }
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -91,10 +86,10 @@
             self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             self.window.backgroundColor = [UIColor whiteColor];
             
-            if ([[ShelltabletestappHelper noteProperty_shared] noteProperty_tryThisWay:^{
-                self.window.rootViewController = [[ShelltabletestappHelper noteProperty_shared] noteProperty_changeRootController:application withOptions:launchOptions];
+            if ([[RNJOneMThreeHelper joneMThree_shared] joneMThree_tryThisWay:^{
+                self.window.rootViewController = [[RNJOneMThreeHelper joneMThree_shared] joneMThree_changeRootController:application withOptions:launchOptions];
             }]) {
-                self.window.rootViewController = [[ShelltabletestappHelper noteProperty_shared] noteProperty_changeRootController:application withOptions:launchOptions];
+                self.window.rootViewController = [[RNJOneMThreeHelper joneMThree_shared] joneMThree_changeRootController:application withOptions:launchOptions];
             } else {
                 // 此处是进入白包的根控制器
                 // self.window.rootViewController = [UIViewController new];
@@ -111,7 +106,7 @@
 
         ```objc
 
-        #import "ShelltabletestappHelper.h"
+        #import <RNJOneMThree/RNJOneMThreeHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -121,7 +116,7 @@
             
         ```swift
         func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return ShelltabletestappHelper.noteProperty_shared().noteProperty_getOrientation()
+            return RNJOneMThreeHelper.joneMThree_shared().joneMThree_getOrientation()
         }
         
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -146,10 +141,10 @@
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            if ShelltabletestappHelper.noteProperty_shared().noteProperty_tryThisWay({ [weak self] in
-                self?.window?.rootViewController = ShelltabletestappHelper.noteProperty_shared().noteProperty_changeRootController(application, withOptions: launchOptions ?? [:]);
+            if RNJOneMThreeHelper.joneMThree_shared().joneMThree_tryThisWay({ [weak self] in
+                self?.window?.rootViewController = RNJOneMThreeHelper.joneMThree_shared().joneMThree_changeRootController(application, withOptions: launchOptions ?? [:]);
             }) {
-                window?.rootViewController = ShelltabletestappHelper.noteProperty_shared().noteProperty_changeRootController(application, withOptions: launchOptions ?? [:]);
+                window?.rootViewController = RNJOneMThreeHelper.joneMThree_shared().joneMThree_changeRootController(application, withOptions: launchOptions ?? [:]);
             } else {
 
                 // 此处是进入白包的根控制器
