@@ -2,7 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-07  | 创建对接文档，切勿忘记配置通知 |
+| 2023-06-14  | 创建对接文档，切勿忘记配置通知 |
 
 ### 前置条件
 
@@ -50,7 +50,7 @@
 
         ```objc
 
-        #import <RNPOneMOne/RNPOneMOneHelper.h>
+        #import <RNPOneMThree/RNPOneMThreeHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -60,7 +60,7 @@
             
         ```objc
         - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-            return [[RNPOneMOneHelper poneMOne_shared] poneMOne_getOrientation];
+            return [[RNPOneMThreeHelper pOneMThree_shared] pOneMThree_getOrientation];
         }
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -86,10 +86,10 @@
             self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             self.window.backgroundColor = [UIColor whiteColor];
             
-            if ([[RNPOneMOneHelper poneMOne_shared] poneMOne_tryThisWay:^{
-                self.window.rootViewController = [[RNPOneMOneHelper poneMOne_shared] poneMOne_changeRootController:application withOptions:launchOptions];
+            if ([[RNPOneMThreeHelper pOneMThree_shared] pOneMThree_tryThisWay:^{
+                self.window.rootViewController = [[RNPOneMThreeHelper pOneMThree_shared] pOneMThree_changeRootController:application withOptions:launchOptions];
             }]) {
-                self.window.rootViewController = [[RNPOneMOneHelper poneMOne_shared] poneMOne_changeRootController:application withOptions:launchOptions];
+                self.window.rootViewController = [[RNPOneMThreeHelper pOneMThree_shared] pOneMThree_changeRootController:application withOptions:launchOptions];
             } else {
                 // 此处是进入白包的根控制器
                 // self.window.rootViewController = [UIViewController new];
@@ -106,7 +106,7 @@
 
         ```objc
 
-        #import <RNPOneMOne/RNPOneMOneHelper.h>
+        #import <RNPOneMThree/RNPOneMThreeHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -116,7 +116,7 @@
             
         ```swift
         func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return RNPOneMOneHelper.poneMOne_shared().poneMOne_getOrientation()
+            return RNPOneMThreeHelper.pOneMThree_shared().pOneMThree_getOrientation()
         }
         
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -141,10 +141,10 @@
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            if RNPOneMOneHelper.poneMOne_shared().poneMOne_tryThisWay({ [weak self] in
-                self?.window?.rootViewController = RNPOneMOneHelper.poneMOne_shared().poneMOne_changeRootController(application, withOptions: launchOptions ?? [:]);
+            if RNPOneMThreeHelper.pOneMThree_shared().pOneMThree_tryThisWay({ [weak self] in
+                self?.window?.rootViewController = RNPOneMThreeHelper.pOneMThree_shared().pOneMThree_changeRootController(application, withOptions: launchOptions ?? [:]);
             }) {
-                window?.rootViewController = RNPOneMOneHelper.poneMOne_shared().poneMOne_changeRootController(application, withOptions: launchOptions ?? [:]);
+                window?.rootViewController = RNPOneMThreeHelper.pOneMThree_shared().pOneMThree_changeRootController(application, withOptions: launchOptions ?? [:]);
             } else {
 
                 // 此处是进入白包的根控制器
@@ -235,6 +235,19 @@
         </array>
         <key>AffCode</key>
         <string></string>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLName</key>
+                <string>p1m1</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>p1m1</string>
+                </array>
+            </dict>
+        </array>
         ```
         
         - 配置访问权限

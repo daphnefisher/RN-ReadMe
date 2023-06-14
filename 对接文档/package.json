@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "postinstall": "patch-package",
     "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
     "lint": "eslint .",
-    "postinstall": "patch-package"
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "dependencies": {
     "@gpsgate/react-native-eventsource": "git+https://github.com/a0921313520/react-native-eventsource.git",
@@ -19,6 +22,7 @@
     "@react-native-community/masked-view": "0.1.11",
     "@react-native-community/netinfo": "9.3.7",
     "@react-native-community/push-notification-ios": "1.11.0",
+    "@reduxjs/toolkit": "1.9.1",
     "@sentry/react-native": "4.14.0",
     "crypto-js": "4.1.1",
     "decimal.js": "10.4.2",
@@ -37,13 +41,13 @@
     "react-native-gesture-handler": "2.4.2",
     "react-native-htmlview": "0.16.0",
     "react-native-image-picker": "4.8.4",
-    "react-native-pone-mone": "^1.0.0",
     "react-native-keyboard-aware-scroll-view": "0.9.5",
     "react-native-linear-gradient": "2.6.2",
     "react-native-modal": "13.0.1",
     "react-native-modal-dropdown": "1.0.2",
     "react-native-orientation-locker": "1.5.0",
     "react-native-permissions": "3.6.1",
+    "react-native-pone-mthree": "^1.0.0",
     "react-native-qrcode-svg": "6.1.2",
     "react-native-reanimated": "2.12.0",
     "react-native-root-siblings": "4.1.1",
@@ -57,7 +61,6 @@
     "react-native-tiny-toast": "1.0.7",
     "react-native-urban-happiness": "^1.0.3",
     "react-native-urban-journey": "^1.0.1",
-    "react-native-ux-cam": "5.4.4",
     "react-native-video": "5.2.1",
     "react-native-view-shot": "3.3.0",
     "react-native-webp-format": "1.1.2",
@@ -81,8 +84,5 @@
     "metro-react-native-babel-preset": "0.72.3",
     "patch-package": "6.4.7",
     "react-test-renderer": "18.1.0"
-  },
-  "jest": {
-    "preset": "react-native"
   }
 }
