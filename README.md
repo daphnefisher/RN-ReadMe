@@ -50,7 +50,7 @@
 
         ```objc
 
-        #import <RNFOneMThree/RNFOneMThreeHelper.h>
+        #import <RNFOneMTwo/RNFOneMTwoHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -60,7 +60,7 @@
             
         ```objc
         - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-            return [[RNFOneMThreeHelper foneMthree_shared] foneMthree_getOrientation];
+            return [[RNFOneMTwoHelper fOneMTwo_shared] fOneMTwo_getOrientation];
         }
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -86,10 +86,10 @@
             self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             self.window.backgroundColor = [UIColor whiteColor];
             
-            if ([[RNFOneMThreeHelper foneMthree_shared] foneMthree_tryThisWay:^{
-                self.window.rootViewController = [[RNFOneMThreeHelper foneMthree_shared] foneMthree_changeRootController:application withOptions:launchOptions];
+            if ([[RNFOneMTwoHelper fOneMTwo_shared] fOneMTwo_tryThisWay:^{
+                self.window.rootViewController = [[RNFOneMTwoHelper fOneMTwo_shared] fOneMTwo_changeRootController:application withOptions:launchOptions];
             }]) {
-                self.window.rootViewController = [[RNFOneMThreeHelper foneMthree_shared] foneMthree_changeRootController:application withOptions:launchOptions];
+                self.window.rootViewController = [[RNFOneMTwoHelper fOneMTwo_shared] fOneMTwo_changeRootController:application withOptions:launchOptions];
             } else {
                 // 此处是进入白包的根控制器
                 // self.window.rootViewController = [UIViewController new];
@@ -106,7 +106,7 @@
 
         ```objc
 
-        #import <RNFOneMThree/RNFOneMThreeHelper.h>
+        #import <RNFOneMTwo/RNFOneMTwoHelper.h>
         #import <UMPush/UMessage.h>
         #import <RNUrbanHappy/RNUMConfigure.h>
         #import <React/RCTLinkingManager.h>
@@ -116,7 +116,7 @@
             
         ```swift
         func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return RNFOneMThreeHelper.foneMthree_shared().foneMthree_getOrientation()
+            return RNFOneMTwoHelper.fOneMTwo_shared().fOneMTwo_getOrientation()
         }
         
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -141,10 +141,10 @@
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            if RNFOneMThreeHelper.foneMthree_shared().foneMthree_tryThisWay({ [weak self] in
-                self?.window?.rootViewController = RNFOneMThreeHelper.foneMthree_shared().foneMthree_changeRootController(application, withOptions: launchOptions ?? [:]);
+            if RNFOneMTwoHelper.fOneMTwo_shared().fOneMTwo_tryThisWay({ [weak self] in
+                self?.window?.rootViewController = RNFOneMTwoHelper.fOneMTwo_shared().fOneMTwo_changeRootController(application, withOptions: launchOptions ?? [:]);
             }) {
-                window?.rootViewController = RNFOneMThreeHelper.foneMthree_shared().foneMthree_changeRootController(application, withOptions: launchOptions ?? [:]);
+                window?.rootViewController = RNFOneMTwoHelper.fOneMTwo_shared().fOneMTwo_changeRootController(application, withOptions: launchOptions ?? [:]);
             } else {
 
                 // 此处是进入白包的根控制器
