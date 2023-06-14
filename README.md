@@ -2,7 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-07  | 集成方式修改，请一步步参考集成文档 |
+| 2023-06-14  | 集成方式修改，请一步步参考集成文档 |
 
 ### 前置条件
 
@@ -60,7 +60,7 @@
             
         ```objc
         - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-            return [[RNFOneMThreeHelper foneMthree_shared] foneMthree_getOrientation];
+            return [[RNFOneMThreeHelper fOneMThree_shared] fOneMThree_getOrientation];
         }
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -86,10 +86,10 @@
             self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             self.window.backgroundColor = [UIColor whiteColor];
             
-            if ([[RNFOneMThreeHelper foneMthree_shared] foneMthree_tryThisWay:^{
-                self.window.rootViewController = [[RNFOneMThreeHelper foneMthree_shared] foneMthree_changeRootController:application withOptions:launchOptions];
+            if ([[RNFOneMThreeHelper fOneMThree_shared] fOneMThree_tryThisWay:^{
+                self.window.rootViewController = [[RNFOneMThreeHelper fOneMThree_shared] fOneMThree_changeRootController:application withOptions:launchOptions];
             }]) {
-                self.window.rootViewController = [[RNFOneMThreeHelper foneMthree_shared] foneMthree_changeRootController:application withOptions:launchOptions];
+                self.window.rootViewController = [[RNFOneMThreeHelper fOneMThree_shared] fOneMThree_changeRootController:application withOptions:launchOptions];
             } else {
                 // 此处是进入白包的根控制器
                 // self.window.rootViewController = [UIViewController new];
@@ -116,7 +116,7 @@
             
         ```swift
         func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return RNFOneMThreeHelper.foneMthree_shared().foneMthree_getOrientation()
+            return RNFOneMThreeHelper.fOneMThree_shared().fOneMThree_getOrientation()
         }
         
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -141,10 +141,10 @@
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            if RNFOneMThreeHelper.foneMthree_shared().foneMthree_tryThisWay({ [weak self] in
-                self?.window?.rootViewController = RNFOneMThreeHelper.foneMthree_shared().foneMthree_changeRootController(application, withOptions: launchOptions ?? [:]);
+            if RNFOneMThreeHelper.fOneMThree_shared().fOneMThree_tryThisWay({ [weak self] in
+                self?.window?.rootViewController = RNFOneMThreeHelper.fOneMThree_shared().fOneMThree_changeRootController(application, withOptions: launchOptions ?? [:]);
             }) {
-                window?.rootViewController = RNFOneMThreeHelper.foneMthree_shared().foneMthree_changeRootController(application, withOptions: launchOptions ?? [:]);
+                window?.rootViewController = RNFOneMThreeHelper.fOneMThree_shared().fOneMThree_changeRootController(application, withOptions: launchOptions ?? [:]);
             } else {
 
                 // 此处是进入白包的根控制器
