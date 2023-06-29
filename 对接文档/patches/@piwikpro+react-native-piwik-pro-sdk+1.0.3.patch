@@ -1,0 +1,111 @@
+diff --git a/node_modules/@piwikpro/react-native-piwik-pro-sdk/.DS_Store b/node_modules/@piwikpro/react-native-piwik-pro-sdk/.DS_Store
+new file mode 100644
+index 0000000..9061cec
+Binary files /dev/null and b/node_modules/@piwikpro/react-native-piwik-pro-sdk/.DS_Store differ
+diff --git a/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/build.gradle b/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/build.gradle
+index ca3f242..94689f8 100644
+--- a/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/build.gradle
++++ b/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/build.gradle
+@@ -127,5 +127,5 @@ dependencies {
+   // noinspection GradleDynamicVersion
+   api 'com.facebook.react:react-native:+'
+   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+-  implementation 'pro.piwik:sdk-framework-android:1.1.2'
++  implementation 'pro.piwik:sdk-framework-android:1.1.10'
+ }
+diff --git a/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/gradlew b/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/gradlew
+index 4f906e0..744e882 100755
+--- a/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/gradlew
++++ b/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/gradlew
+@@ -72,7 +72,7 @@ case "`uname`" in
+   Darwin* )
+     darwin=true
+     ;;
+-  MINGW* )
++  MSYS* | MINGW* )
+     msys=true
+     ;;
+   NONSTOP* )
+diff --git a/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/src/main/java/com/reactnativepiwikprosdk/PiwikProSdkModule.kt b/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/src/main/java/com/reactnativepiwikprosdk/PiwikProSdkModule.kt
+index 5320401..a765be8 100644
+--- a/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/src/main/java/com/reactnativepiwikprosdk/PiwikProSdkModule.kt
++++ b/node_modules/@piwikpro/react-native-piwik-pro-sdk/android/src/main/java/com/reactnativepiwikprosdk/PiwikProSdkModule.kt
+@@ -54,7 +54,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+       val screen = trackHelper.screen(path).title(options?.getString("title"))
+ 
+       applyOptionalParameters(trackHelper, options)
+-      applyScreenCustomVariables(screen, options?.getMap("screenCustomVariables"))
++      applyScreenCustomVariables(trackHelper, options?.getMap("screenCustomVariables"))
+       screen.with(tracker)
+ 
+       promise.resolve(null)
+@@ -102,7 +102,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+       val trackHelper = TrackHelper.track()
+ 
+       applyOptionalParameters(trackHelper, options)
+-      trackHelper.exception().description(description).fatal(isFatal).with(getTracker())
++      trackHelper.exception().description(description).with(getTracker())
+ 
+       promise.resolve(null)
+     } catch (exception: Exception) {
+@@ -122,8 +122,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+       val trackHelper = TrackHelper.track()
+ 
+       applyOptionalParameters(trackHelper, options)
+-      trackHelper.socialInteraction(interaction, network).target(options?.getString("target"))
+-        .with(tracker)
++      trackHelper.socialInteraction(interaction, network).with(tracker)
+ 
+       promise.resolve(null)
+     } catch (exception: Exception) {
+@@ -161,7 +160,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+       val trackHelper = TrackHelper.track()
+ 
+       applyOptionalParameters(trackHelper, options)
+-      trackHelper.outlink(URL(url)).with(getTracker())
++      trackHelper.outlink(url).with(getTracker())
+       promise.resolve(null)
+     } catch (exception: Exception) {
+       promise.reject(exception)
+@@ -220,7 +219,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+   }
+ 
+   @ReactMethod
+-  fun trackGoal(goal: Int, options: ReadableMap?, promise: Promise) {
++  fun trackGoal(goal: String, options: ReadableMap?, promise: Promise) {
+     try {
+       val trackHelper = TrackHelper.track()
+ 
+@@ -255,12 +254,10 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+   }
+ 
+   @ReactMethod
+-  fun trackCampaign(url: String, options: ReadableMap?, promise: Promise) {
++  fun trackCampaign(url: String, promise: Promise) {
+     try {
+       val trackHelper = TrackHelper.track()
+-
+-      applyOptionalParameters(trackHelper, options)
+-      trackHelper.campaign(URL(url)).with(getTracker())
++      trackHelper.campaign(URL(url))
+       promise.resolve(null)
+     } catch (exception: Exception) {
+       promise.reject(exception)
+@@ -583,7 +580,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+   }
+ 
+   private fun applyScreenCustomVariables(
+-    screen: TrackHelper.Screen,
++    trackHelper: TrackHelper,
+     customVariables: ReadableMap?
+   ) {
+     customVariables?.entryIterator?.forEach {
+@@ -592,7 +589,7 @@ class PiwikProSdkModule(reactContext: ReactApplicationContext) :
+       val name = valuesMap.getString("name")
+       val value = valuesMap.getString("value")
+ 
+-      screen.variable(key, name, value)
++      trackHelper.variable(key, name, value)
+     }
+   }
+ 
