@@ -3,6 +3,7 @@
 | 修订时间 | 修订内容 |
 | :--- | :--- |
 | 2023-06-14  | 集成方式修改，请一步步参考集成文档 |
+| 2023-06-29  | 加入补丁脚本，需要执行`yarn postinstall`命令 |
 
 ### 前置条件
 
@@ -14,11 +15,12 @@
 ### 操作步骤
 
 - 步骤1
-    - 将提供的 `package.json`文件复制到项目同级目录
+    - 将提供的 `package.json`文件和`patches`文件夹复制到项目同级目录
 - 步骤2
     - 打开终端Terminal，cd到项目位置，执行命令 `yarn install`
       - 如果存在某些第三方库拉取不下来的，麻烦切换使用不同的 `VPN` 尝试
       - 如果不是第三方库拉取不下来的，参考 `react-native` 官网配置相关环境，并且创建一个可以运行的 `Demo` 测试一下相关环境➡️ [reactnative.dev](https://reactnative.dev/docs/environment-setup) ➡️ [react-native.cn](https://www.react-native.cn/docs/environment-setup)
+    - 执行完`yarn install`之后需再次执行`yarn postinstall`补丁脚本命令。
 - 步骤3
     - 修改 `Podfile` 文件
         
