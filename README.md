@@ -3,6 +3,7 @@
 | 修订时间 | 修订内容 |
 | :--- | :--- |
 | 2023-6-2  | 创建对接文档，切勿忘记配置通知 |
+| 2023-9-21  | 修改部分内容，替换main.jsbundle等等 |
 
 ### 前置条件
 
@@ -74,6 +75,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNJOneMOneHelper joneMone_shared] joneMone_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNJOneMOneHelper joneMone_shared] joneMone_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -285,6 +291,14 @@
                 <key>CFBundleURLSchemes</key>
                 <array>
                     <string>j1m1</string>
+                </array>
+            </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappJ1M1</string>
                 </array>
             </dict>
         </array>
