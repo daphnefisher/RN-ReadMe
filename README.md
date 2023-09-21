@@ -3,7 +3,7 @@
 | 修订时间 | 修订内容 |
 | :--- | :--- |
 | 2023-06-07  | 集成方式修改，请一步步参考集成文档 |
-| 2023-06-29  | 加入补丁脚本，需要执行`yarn postinstall` 命令 |
+| 2023-09-21  | 加入部分内容，修改info.plist等 |
 
 ### 前置条件
 
@@ -76,8 +76,14 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNFOneMTwoHelper fOneMTwo_shared] fOneMTwo_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNFOneMTwoHelper fOneMTwo_shared] fOneMTwo_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
+
         ```
             
         - 修改根控制器 `rootViewController`
@@ -233,6 +239,17 @@
         <false/>
         <key>AffCode</key>
         <string></string>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappF1M2</string>
+                </array>
+            </dict>
+        </array>
         ```
 
         - **配置**远程通知 `UIBackgroundModes`
