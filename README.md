@@ -136,6 +136,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNJOneMOneHelper.joneMone_shared().joneMone_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNJOneMOneHelper.joneMone_shared().joneMone_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
