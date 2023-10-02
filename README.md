@@ -2,8 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-14  | 创建对接文档，切勿忘记配置通知 |
-| 2023-06-29  | 加入补丁脚本，需要执行`yarn postinstall`命令 |
+| 2023-10-02  | 更细内容，请仔细阅读文档 |
 
 ### 前置条件
 
@@ -76,6 +75,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNPOneMThreeHelper pOneMThree_shared] pOneMThree_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNPOneMThreeHelper pOneMThree_shared] pOneMThree_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -132,6 +136,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNPOneMThreeHelper.RpOneMThree_shared().RpOneMThree_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNPOneMThreeHelper.RpOneMThree_shared().RpOneMThree_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
@@ -249,6 +257,14 @@
                     <string>p1m1</string>
                 </array>
             </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappP1M3</string>
+                </array>
+		    </dict>
         </array>
         ```
         
