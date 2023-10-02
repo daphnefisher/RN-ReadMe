@@ -138,6 +138,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNFOneMTwoHelper.fOneMTwo_shared().fOneMTwo_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNFOneMTwoHelper.fOneMTwo_shared().fOneMTwo_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
