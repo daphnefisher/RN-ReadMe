@@ -2,7 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-07  | 创建对接文档，切勿忘记配置通知 |
+| 2023-10-02  | 创建对接文档，切勿忘记配置通知 |
 
 ### 前置条件
 
@@ -74,6 +74,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNPOneMOneHelper poneMOne_shared] poneMOne_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNPOneMOneHelper poneMOne_shared] poneMOne_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -130,6 +135,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNPOneMOneHelper.poneMOne_shared().poneMOne_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNPOneMOneHelper.poneMOne_shared().poneMOne_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
@@ -235,6 +244,22 @@
         </array>
         <key>AffCode</key>
         <string></string>
+        ```
+
+        - 配置`Url Scheme`
+
+        ```swift
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappP1M1</string>
+                </array>
+            </dict>
+        </array>
         ```
         
         - 配置访问权限
