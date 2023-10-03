@@ -136,8 +136,8 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-            if RNPOneMThreeHelper.RpOneMThree_shared().RpOneMThree_tryOtherWayQueryScheme(url) {
-                window?.rootViewController = RNPOneMThreeHelper.RpOneMThree_shared().RpOneMThree_changeRootController(app, withOptions: options)
+            if RNPOneMThreeHelper.pOneMThree_shared().pOneMThree_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNPOneMThreeHelper.pOneMThree_shared().pOneMThree_changeRootController(app, withOptions: options)
                 return true
             }
             return RCTLinkingManager.application(app, open: url, options: options)
