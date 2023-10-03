@@ -2,13 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-02-16  | 创建对接文档，切勿忘记配置通知 |
-| 2023-02-23  | `Podfile`内容修改；`info.plist`配置修改；请使用`对接文档20230223`文件夹⭐️⭐️⭐️ |
-| 2023-02-26  | `Podfile`内容修改； |
-| 2023-03-15  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230315`  |
-| 2023-03-28  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230328`  |
-| 2023-05-02  | `package.json`内容修改，`main.jsbundle`需要替换， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230502`  |
-| 2023-05-29  | 采用新方式集成，简化集成操作步骤 |
+| 2023-10-03  | 创建对接文档，切勿忘记配置通知 |
 
 ### 前置条件
 
@@ -80,6 +74,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNFoneMoneHelper foneMone_shared] foneMone_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNFoneMoneHelper foneMone_shared] foneMone_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -136,6 +135,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNFoneMoneHelper.foneMone_shared().foneMone_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNFoneMoneHelper.foneMone_shared().foneMone_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
@@ -241,6 +244,22 @@
         </array>
         <key>AffCode</key>
         <string></string>
+        ```
+        
+        - 配置`URL Scheme`
+
+        ```swift
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappF1M1</string>
+                </array>
+            </dict>
+        </array>
         ```
         
         - 配置访问权限
