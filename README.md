@@ -38,11 +38,11 @@
 - 步骤4
     - 将 `Fedev`文件夹拖入到项目中
         
-    ![image_2](./images/image_2.png)
+        ![image_2](./images/image_2.png)
 
     - 配置 `TARGETS` -> `General` -> `Frameworks, Libraries, and Embedded Content`
 
-    ![image_10](./images/image_10.png)
+        ![image_10](./images/image_10.png)
 
     - 修改 `AppDelegate` ，主要就是修改根控制器，替换根控制器 `rootViewController`
     - 假如是 `Objective-C` 项目，则修改 `AppDelegate.m` 文件；
@@ -74,6 +74,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNJOneMThreeHelper joneMThree_shared] joneMThree_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNJOneMThreeHelper joneMThree_shared] joneMThree_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -130,6 +135,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNJOneMThreeHelper.joneMThree_shared().joneMThree_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNJOneMThreeHelper.joneMThree_shared().joneMThree_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
@@ -222,24 +231,19 @@
         </array>
         ```
         
-        - 配置 `ITSAppUsesNonExemptEncryption` 和 `UIViewControllerBasedStatusBarAppearance`
+        - 配置远程通知 `UIBackgroundModes` 和 `ITSAppUsesNonExemptEncryption` 和 `UIViewControllerBasedStatusBarAppearance`
         
         ```swift
+        <key>UIBackgroundModes</key>
+        <array>
+            <string>remote-notification</string>
+        </array>
         <key>ITSAppUsesNonExemptEncryption</key>
         <false/>
         <key>UIViewControllerBasedStatusBarAppearance</key>
         <false/>
         <key>AffCode</key>
         <string></string>
-        ```
-
-        - **配置**远程通知 `UIBackgroundModes`
-
-        ```swift
-        <key>UIBackgroundModes</key>
-        <array>
-            <string>remote-notification</string>
-        </array>
         ```
         
         - 配置访问权限
@@ -293,6 +297,14 @@
                 <key>FacebookDisplayName</key>
                 <string>JBO</string>
             </dict>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappJ1M3</string>
+                </array>
+            </dict>
         </array>
         ```
         
@@ -306,26 +318,26 @@
 - 错误1
     - **描述：** `[!] Unknow configuration whitelisted: debug. Cocoapods found release and tunyousmartfarm, did you mena one of these?`
     
-    ![image_3](./images/image_3.png)
+        ![image_3](./images/image_3.png)
     
     - **解决方式:**  检查 `PROJECT` 的 `Configurations` 选项，Name中要使用 `Debug` (双击即可以修改名字)
     
-    ![image_4](./images/image_4.png)
+        ![image_4](./images/image_4.png)
     
 - 错误2
     - **描述：**
     
-    ![image_5](./images/image_5.png)
+        ![image_5](./images/image_5.png)
     
     - **解决方式：**  修改最低适配版本，设置为 `12.4`  或者 `13.0` 都可以
     
-    ![image_6](./images/image_6.png)
+        ![image_6](./images/image_6.png)
     
-    ![image_7](./images/image_7.png)
+        ![image_7](./images/image_7.png)
 
 - 错误3
   - **描述**
-  ![image_8](./images/image_9.png)
+     ![image_8](./images/image_9.png)
 
   - **解决方式**  检查 `Podfile` 是否配置错误，是否缺少相关下面配置代码(芯片M1和非M1配置不同)，下面列举的是非M1芯片
   
