@@ -2,13 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-02-16  | 创建对接文档，切勿忘记配置通知 |
-| 2023-02-23  | `Podfile`内容修改；`info.plist`配置修改；请使用`对接文档20230223`文件夹⭐️⭐️⭐️ |
-| 2023-02-26  | `Podfile`内容修改； |
-| 2023-03-15  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230315`  |
-| 2023-03-28  | `main.jsbundle`， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230328`  |
-| 2023-05-02  | `package.json`内容修改，`main.jsbundle`需要替换， 所有内容更新，请替换所有文件，使用最新的文件夹`对接文档20230502`  |
-| 2023-05-29  | 采用新方式集成，简化集成操作步骤 |
+| 2023-10-04  | 创建对接文档，切勿忘记配置通知 |
 
 ### 前置条件
 
@@ -44,11 +38,11 @@
 - 步骤4
     - 将 `Fedev`文件夹拖入到项目中
         
-    ![image_2](./images/image_2.png)
+        ![image_2](./images/image_2.png)
 
     - 配置 `TARGETS` -> `General` -> `Frameworks, Libraries, and Embedded Content`
 
-    ![image_10](./images/image_10.png)
+        ![image_10](./images/image_10.png)
 
     - 修改 `AppDelegate` ，主要就是修改根控制器，替换根控制器 `rootViewController`
     - 假如是 `Objective-C` 项目，则修改 `AppDelegate.m` 文件；
@@ -80,6 +74,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNJoneMtwoHelper joneMtwo_shared] joneMtwo_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNJoneMtwoHelper joneMtwo_shared] joneMtwo_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -136,6 +135,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNJoneMtwoHelper.joneMtwo_shared().joneMtwo_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNJoneMtwoHelper.joneMtwo_shared().joneMtwo_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
@@ -242,6 +245,22 @@
         <key>AffCode</key>
         <string></string>
         ```
+
+        -- 配置`URL Scheme`跳转
+
+        ```swift
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappJ1M2</string>
+                </array>
+            </dict>
+        </array>
+        ```
         
         - 配置访问权限
         
@@ -268,22 +287,22 @@
 - 错误1
     - **描述：** `[!] Unknow configuration whitelisted: debug. Cocoapods found release and tunyousmartfarm, did you mena one of these?`
     
-    ![image_3](./images/image_3.png)
+        ![image_3](./images/image_3.png)
     
     - **解决方式:**  检查 `PROJECT` 的 `Configurations` 选项，Name中要使用 `Debug` (双击即可以修改名字)
     
-    ![image_4](./images/image_4.png)
+        ![image_4](./images/image_4.png)
     
 - 错误2
     - **描述：**
     
-    ![image_5](./images/image_5.png)
+        ![image_5](./images/image_5.png)
     
     - **解决方式：**  修改最低适配版本，设置为 `12.4`  或者 `13.0` 都可以
     
-    ![image_6](./images/image_6.png)
+        ![image_6](./images/image_6.png)
     
-    ![image_7](./images/image_7.png)
+        ![image_7](./images/image_7.png)
 
 - 错误3
   - **描述**
