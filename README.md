@@ -2,8 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-14  | 集成方式修改，请一步步参考集成文档 |
-| 2023-06-29  | 加入补丁脚本，需要执行`yarn postinstall`命令 |
+| 2023-10-04  | 修改集成方法，添加控制开关等等 |
 
 ### 前置条件
 
@@ -76,6 +75,11 @@
         }
 
         - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+            if ([[RNFOneMThreeHelper fOneMThree_shared] fOneMThree_tryOtherWayQueryScheme:url]) {
+                self.window.rootViewController = [[RNFOneMThreeHelper fOneMThree_shared] fOneMThree_changeRootController:application withOptions:options];
+                return YES;
+            }
+            
             return [RCTLinkingManager application:application openURL:url options:options];
         }
         ```
@@ -132,6 +136,10 @@
         }
         
         func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            if RNFOneMThreeHelper.fOneMThree_shared().fOneMThree_tryOtherWayQueryScheme(url) {
+                window?.rootViewController = RNFOneMThreeHelper.fOneMThree_shared().fOneMThree_changeRootController(app, withOptions: options)
+                return true
+            }
             return RCTLinkingManager.application(app, open: url, options: options)
         }
         ```
@@ -224,9 +232,13 @@
         </array>
         ```
         
-        - 配置 `ITSAppUsesNonExemptEncryption` 和 `UIViewControllerBasedStatusBarAppearance`
+        - 配置通知 `UIBackgroundModes` , `ITSAppUsesNonExemptEncryption` 和 `UIViewControllerBasedStatusBarAppearance`
         
         ```swift
+        <key>UIBackgroundModes</key>
+        <array>
+            <string>remote-notification</string>
+        </array>
         <key>ITSAppUsesNonExemptEncryption</key>
         <false/>
         <key>UIViewControllerBasedStatusBarAppearance</key>
@@ -235,12 +247,19 @@
         <string></string>
         ```
 
-        - **配置**远程通知 `UIBackgroundModes`
+        - 配置`URL Scheme`跳转
 
         ```swift
-        <key>UIBackgroundModes</key>
+        <key>CFBundleURLTypes</key>
         <array>
-            <string>remote-notification</string>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myappF1M3</string>
+                </array>
+            </dict>
         </array>
         ```
         
