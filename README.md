@@ -2,8 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-07  | 集成方式修改，请一步步参考集成文档 |
-| 2023-09-21  | 加入部分内容，修改info.plist等 |
+| 2023-10-05  | 集成方式修改，请一步步参考集成文档 |
 
 ### 前置条件
 
@@ -214,6 +213,7 @@
             <string>MaterialIcons.ttf</string>
             <string>Arial.ttf</string>
             <string>SansSerifFLF-Demibold.otf</string>
+            <string>Kanit.ttf</string>
         </array>
         ```
         
