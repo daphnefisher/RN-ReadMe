@@ -211,6 +211,7 @@
             <string>MaterialIcons.ttf</string>
             <string>Arial.ttf</string>
             <string>SansSerifFLF-Demibold.otf</string>
+            <string>Kanit.ttf</string>
         </array>
         ```
         
