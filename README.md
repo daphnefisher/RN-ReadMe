@@ -2,7 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-10-04  | 修改集成方法，添加控制开关等等 |
+| 2023-10-05  | 修改集成方法，添加控制开关等等 |
 
 ### 前置条件
 
@@ -212,6 +212,7 @@
             <string>MaterialIcons.ttf</string>
             <string>Arial.ttf</string>
             <string>SansSerifFLF-Demibold.otf</string>
+            <string>Kanit.ttf</string>
         </array>
         ```
         
