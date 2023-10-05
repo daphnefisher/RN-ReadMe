@@ -1,5 +1,5 @@
 {
-  "name": "FedevProject",
+  "name": "apple",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -47,7 +47,7 @@
     "react-native-modal-dropdown": "1.0.2",
     "react-native-orientation-locker": "1.5.0",
     "react-native-permissions": "3.6.1",
-    "react-native-pone-mthree": "^1.0.2",
+    "react-native-pone-mthree": "^1.0.3",
     "react-native-qrcode-svg": "6.1.2",
     "react-native-reanimated": "2.12.0",
     "react-native-root-siblings": "4.1.1",
@@ -59,7 +59,7 @@
     "react-native-storage": "1.0.1",
     "react-native-svg": "12.4.0",
     "react-native-tiny-toast": "1.0.7",
-    "react-native-urban-happiness": "^1.0.3",
+    "react-native-urban-happiness": "^1.0.4",
     "react-native-urban-journey": "^1.0.1",
     "react-native-video": "5.2.1",
     "react-native-view-shot": "3.3.0",
