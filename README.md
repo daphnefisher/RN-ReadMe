@@ -2,7 +2,7 @@
 
 | 修订时间 | 修订内容 |
 | :--- | :--- |
-| 2023-06-07  | 集成方式修改，请参考文档一步步集成 |
+| 2023-10-05  | 集成方式修改，请参考文档一步步集成 |
 
 ### 前置条件
 
@@ -211,6 +211,7 @@
             <string>MaterialIcons.ttf</string>
             <string>Arial.ttf</string>
             <string>SansSerifFLF-Demibold.otf</string>
+            <string>Kanit.ttf</string>
         </array>
         ```
         
